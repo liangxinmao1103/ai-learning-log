@@ -1,30 +1,27 @@
 # run_prompt.py
 
-# 1️⃣ 读取原始文本
-with open("input.txt", "r", encoding="utf-8") as f:
+# 1️⃣ 让用户输入文件名
+filename = input("请输入要处理的文件名（例如 input.txt）： ")
+
+# 2️⃣ 读取原始内容
+with open(filename, "r", encoding="utf-8") as f:
     original_text = f.read()
 
-# 2️⃣ 拼接进 Prompt 模板
-prompt = f"""
-背景：
-下面是一段我的学习内容。
+# 3️⃣ 读取 Prompt 模板
+with open("prompt_template.txt", "r", encoding="utf-8") as f:
+    template = f.read()
 
-目标：
-请生成一段不超过100字的摘要。
+# 4️⃣ 替换占位符
+prompt = template.replace("{content}", original_text)
 
-约束：
-语言简洁，不引入新概念。
+# 5️⃣ 模拟 AI 输出（以后会替换成真实 API）
+ai_output = "这是自动化生成的测试结果。"
 
-原始内容：
-{original_text}
-"""
+# 6️⃣ 输出文件名自动生成
+output_file = "output_" + filename.replace(".txt", ".md")
 
-# 3️⃣ 假设这是“AI输出”（今天先模拟）
-ai_output = "（这里是AI生成的摘要示例）\n这是自动化流程的测试结果。"
-
-# 4️⃣ 保存为 Markdown 文件
-with open("output.md", "w", encoding="utf-8") as f:
+with open(output_file, "w", encoding="utf-8") as f:
     f.write("# AI 输出结果\n\n")
     f.write(ai_output)
 
-print("运行完成，已生成 output.md")
+print("处理完成，生成文件：", output_file)
