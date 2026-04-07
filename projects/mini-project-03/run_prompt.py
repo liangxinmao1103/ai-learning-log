@@ -4,9 +4,12 @@ import datetime
 BASE_DIR = "projects/mini-project-03"
 INPUT_DIR = os.path.join(BASE_DIR, "inputs")
 OUTPUT_DIR = os.path.join(BASE_DIR, "outputs")
-PROMPT_FILE = "prompts/summary.txt"
 
-print(">>> 正在运行 mini-project-03 <<<")
+PROMPT_MAP = {
+    "1": "prompts/summary.txt",
+    "2": "prompts/translate.txt",
+    "3": "prompts/extract.txt"
+}
 
 def load_file(path):
     with open(path, "r", encoding="utf-8") as f:
@@ -18,19 +21,32 @@ def save_output(name, content):
     path = os.path.join(OUTPUT_DIR, filename)
 
     with open(path, "w", encoding="utf-8") as f:
-        f.write("# AI 总结\n\n")
+        f.write("# AI 输出结果\n\n")
         f.write(content)
 
     return path
 
 def simulate_ai(prompt):
-    return "【AI总结】\n" + prompt[:200]
+    return "【AI结果】\n" + prompt[:200]
 
 def main():
+    print("请选择功能：")
+    print("1. 总结")
+    print("2. 翻译")
+    print("3. 提炼要点")
+
+    choice = input("输入编号：")
+
+    if choice not in PROMPT_MAP:
+        print("无效选择")
+        return
+
+    prompt_file = PROMPT_MAP[choice]
+
+    template = load_file(prompt_file)
+
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
-
-    template = load_file(PROMPT_FILE)
 
     files = os.listdir(INPUT_DIR)
 
