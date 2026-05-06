@@ -1,1 +1,35 @@
+# Week 2 - AI Learning Log
 
+## Goals
+- Understand neural networks basics
+- Implement a simple model
+- Master key concepts in deep learning
+
+## Topics Covered
+- Backpropagation
+- Activation functions
+- Loss functions
+- Gradient descent optimization
+
+## Key Takeaways
+- Learned how gradients flow through layers
+- Discovered importance of learning rate
+- Understood different activation functions and their use cases
+
+## Challenges
+- Debugging gradient calculations
+- Understanding the math behind backpropagation
+- Tuning hyperparameters effectively
+
+## Resources
+- [Neural Networks Basics](https://example.com)
+- [Backpropagation Explained](https://example.com)
+- [Deep Learning Course](https://example.com)
+
+## Next Steps
+- Study convolutional networks
+- Implement CNN from scratch
+- Explore recurrent neural networks
+
+## Notes
+Add your personal reflections and observations here as you progress through the week.
