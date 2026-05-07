@@ -2,7 +2,7 @@ import os
 import datetime
 import argparse
 
-BASE_DIR = "projects/mini-project-03"
+BASE_DIR = "projects/mini-project-04"
 INPUT_DIR = os.path.join(BASE_DIR, "inputs")
 OUTPUT_DIR = os.path.join(BASE_DIR, "outputs")
 
